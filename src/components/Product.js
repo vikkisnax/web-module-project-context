@@ -1,19 +1,20 @@
 import React, { useContext } from 'react';
 import ProductContext from '../contexts/ProductContext';
 
-const Product = () => {
+const Product = (props) => {
 	//destructure for addItem bc we want to use it from Products component (which gets it from App). now we don't need to use 'props'
-	const {product, addItem} = useContext(ProductContext)
+	const {addItem} = useContext(ProductContext)
 
 	return (
 		<div className="product">
-			<img src={product.image} alt={`${product.title} book`} />
+			{/* Products passes 'product' in here */}
+			<img src={props.product.image} alt={`${props.product.title} book`} />
 
-			<h1 className="title">{product.title}</h1>
+			<h1 className="title">{props.product.title}</h1>
 
-			<p className="price">${product.price}</p>
+			<p className="price">${props.product.price}</p>
 
-			<button onClick={() => addItem(product)}>
+			<button onClick={() => addItem(props.product)}>
 				Add to cart
 			</button>
 		</div>

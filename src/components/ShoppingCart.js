@@ -5,8 +5,8 @@ import CartContext from '../contexts/CartContext';
 import Item from './ShoppingCartItem';
 
 const ShoppingCart = ()  => {
-	
-	const {cart} = useContext(CartContext);
+	//don't need to destructure here 
+	const cart = useContext(CartContext);
 	console.log('cart:', cart)
 	
 	const getCartTotal = () => {

@@ -13,6 +13,7 @@ const Products = () => {
 	return (
 		<div className="products-container">
 			{products.map(product => (
+				// other comp 
 				<Product
 					key={product.id}
 					product={product}

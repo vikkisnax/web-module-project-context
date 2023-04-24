@@ -9,7 +9,6 @@ import ShoppingCart from './components/ShoppingCart';
 
 // Context - our root provider
 import ProductContext from './contexts/ProductContext';
-
 import CartContext from './contexts/CartContext';
 
 function App() {
@@ -30,21 +29,21 @@ function App() {
 
 	return (
 		<div className="App">
-			<CartContext value={{products, cart, setCart}}>
-			<Navigation cart={cart} />
+			<CartContext.Provider value={cart}>
+				<Navigation />
 
-			{/* Wrap Provider here - add value prop */}
-			<ProductContext.Provider value={{products, addItem}}>
-				{/* Routes */}
-				<Route exact path="/">
-					<Products />
-				</Route>
-			</ProductContext.Provider>
+				{/* Wrap Provider here - add value prop in double {} bc more than one*/}
+				<ProductContext.Provider value={{products, addItem}}>
+					{/* Routes */}
+					<Route exact path="/">
+						<Products />
+					</Route>
+				</ProductContext.Provider>
 
 				<Route path="/cart">
-					<ShoppingCart cart={cart} />
+					<ShoppingCart />
 				</Route>
-			</CartContext>
+			</CartContext.Provider>
 		</div>
 	);
 }
