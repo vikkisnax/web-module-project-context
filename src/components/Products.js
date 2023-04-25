@@ -6,7 +6,7 @@ import ProductContext from '../contexts/ProductContext';
 import Product from './Product';
 
 const Products = () => {
-	//initially named 'products' but we only need products property (and addItem) so 
+	//initially named 'products' but we only need products property so 
 	const {products} = useContext(ProductContext);
 	console.log('products:', products)
 

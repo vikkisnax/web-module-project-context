@@ -5,8 +5,8 @@ import CartContext from '../contexts/CartContext';
 import Item from './ShoppingCartItem';
 
 const ShoppingCart = ()  => {
-	//don't need to destructure here 
-	const cart = useContext(CartContext);
+	//don't need to destructure {} here 
+	const {cart} = useContext(CartContext);
 	console.log('cart:', cart)
 	
 	const getCartTotal = () => {
@@ -18,7 +18,10 @@ const ShoppingCart = ()  => {
 	return (
 		<div className="shopping-cart">
 			{cart.map(item => (
-				<Item key={item.id} {...item} />
+				<Item 
+					key={item.id} {...item} 	
+					id={item.id}
+				/>
 			))}
 
 			<div className="shopping-cart__checkout">

@@ -21,15 +21,24 @@ function App() {
 
 	console.log(CartContext)
 
-	// add the given item to the cart
+	// add item function - add the given item to the cart
 	const addItem = item => {
 		// console.log(item);
 		setCart([...cart, item]);
 	};
 
+	//stretch - remove item function
+	const removeItem = noItemId => {
+		console.log('cart:', cart)
+		console.log('noItemId:', noItemId)
+		const remove = cart.filter(item => item.id !== noItemId)
+		console.log('remove:', remove)
+		setCart(remove)
+	}
+
 	return (
 		<div className="App">
-			<CartContext.Provider value={cart}>
+			<CartContext.Provider value={{cart, removeItem}}>
 				<Navigation />
 
 				{/* Wrap Provider here - add value prop in double {} bc more than one*/}
